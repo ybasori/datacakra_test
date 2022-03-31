@@ -11,7 +11,7 @@ function TouristDetail() {
   const { tourist } = useSelector((state: Reducers) => state);
 
   useEffect(() => {
-    dispatch(getDataTourist(Number(id)));
+    dispatch(getDataTourist(id || ""));
   }, [dispatch, id]);
   return (
     <>

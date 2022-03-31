@@ -38,7 +38,7 @@ export const resetDataTourists = () => (dispatch: Dispatch) => {
 };
 
 export const getDataTourist =
-  (id: number) => async (dispatch: Dispatch, getState: () => Reducers) => {
+  (id: string) => async (dispatch: Dispatch, getState: () => Reducers) => {
     try {
       const { auth } = getState();
       dispatch({ type: TouristAction.GET_TOURIST_LOADING });
@@ -151,7 +151,7 @@ export const resetEditDataTourist = () => (dispatch: Dispatch) => {
 };
 
 export const deleteDataTourist =
-  (id: number) => async (dispatch: Dispatch, getState: () => Reducers) => {
+  (id: string) => async (dispatch: Dispatch, getState: () => Reducers) => {
     try {
       const { auth } = getState();
       dispatch({ type: TouristAction.DELETE_TOURIST_LOADING });

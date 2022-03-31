@@ -11,7 +11,7 @@ import { Reducers } from "../../../../redux/types";
 import EditTourist from "../EditTourist";
 
 interface TouristListItemProps {
-  id: number;
+  id: string;
   name: string;
   email: string;
   picture: string;
@@ -35,7 +35,7 @@ const TouristListItem: React.FC<TouristListItemProps> = ({
     setModal({
       title: `Delete tourist (${name} - ${email})`,
       body: <>Are sure you want to delete this tourist?</>,
-      onConfirm: () => dispatch(deleteDataTourist(id)),
+      onConfirm: () => dispatch(deleteDataTourist(id || "")),
       confirmText: "Yes, sure",
       onCancel: () => null,
       cancelText: "Cancel",
@@ -58,7 +58,7 @@ const TouristListItem: React.FC<TouristListItemProps> = ({
     }
     if (tourist.successDeleteTourist) {
       dispatch(resetDeleteDataTourist());
-      dispatch(getDataTourists(Number(searchParams.get("page"))));
+      dispatch(getDataTourists(Number(searchParams.get("page")) || 1));
       closeNewestModal();
     }
   }, [

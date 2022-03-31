@@ -9,7 +9,7 @@ import CreateNewTourist from "./components/CreateNewTourist";
 import TouristListItem from "./components/TouristListItem";
 
 interface TouristData {
-  id: number;
+  id: string;
   tourist_name: string;
   tourist_email: string;
   tourist_profilepicture: string;

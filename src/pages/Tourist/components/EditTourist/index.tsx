@@ -15,7 +15,7 @@ import {
 import { Reducers } from "../../../../redux/types";
 
 interface EditTouristProps {
-  id: number;
+  id: string;
 }
 
 const schema = yup.object({
@@ -52,7 +52,7 @@ const EditTourist: React.FC<EditTouristProps> = ({ id }) => {
   };
 
   useEffect(() => {
-    dispatch(getDataTourist(Number(id)));
+    dispatch(getDataTourist(id || ""));
   }, [dispatch, id]);
 
   useEffect(() => {
@@ -70,7 +70,7 @@ const EditTourist: React.FC<EditTouristProps> = ({ id }) => {
     if (tourist.successEditTourist) {
       dispatch(resetEditDataTourist());
       dispatch(resetDataTourist());
-      dispatch(getDataTourists(Number(searchParams.get("page"))));
+      dispatch(getDataTourists(Number(searchParams.get("page")) || 1));
       closeNewestModal();
     }
   }, [
